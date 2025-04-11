@@ -2,6 +2,8 @@ package com.swagLabs.base;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -9,11 +11,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.swagLabs.utilities.Utility;
+
 public class Testbase {
 
-	WebDriver driver ;
+	public static WebDriver driver ;
 	
-	File f;
+	public static File f;
 	
 	FileInputStream fis;
 	
@@ -39,9 +43,7 @@ public class Testbase {
 		}
 	}
 	
-	
-	
-	public void initBrowser()
+	public void initBrowser() 
 	{
 		String browsername = pro.getProperty("browserName");	
 		
@@ -66,6 +68,22 @@ public class Testbase {
 		}
 		
 		driver.get(pro.getProperty("appURL"));
+		
+		Utility.maxWin();
+		
+		Utility.implicitly_wait(30);
+		try
+		{
+		
+			Utility.takingScreenshot("Screenshot1");
+		}
+		
+		catch(IOException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		Utility.closeWin();
 		
 	}
 
