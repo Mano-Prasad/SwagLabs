@@ -72,25 +72,9 @@ public class Testbase {
 		Utility.maxWin();
 		
 		Utility.implicitly_wait(30);
-		try
-		{
-		
-			Utility.takingScreenshot("Screenshot1");
-		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e.getMessage());
-		}
-		
-		Utility.closeWin();
 		
 	}
 
 	
-	public static void main(String[] args) 
-	{
-		
-		new Testbase().initBrowser();
-	}
+	
 }
