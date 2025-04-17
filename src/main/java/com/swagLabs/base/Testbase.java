@@ -21,7 +21,7 @@ public class Testbase {
 	
 	FileInputStream fis;
 	
-	Properties pro;
+	public Properties pro;
 	
 	
 	public Testbase()
